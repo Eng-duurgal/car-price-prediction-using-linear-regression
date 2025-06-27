@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .container {
+            width: 40%;
+            margin: 100px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px gray;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+        }
+        .result-text {
+            font-size: 28px;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .phishing {
+            color: red;
+            background-color: #ffcccc;
+        }
+        .legitimate {
+            color: green;
+            background-color: #ccffcc;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007bff;
+            font-size: 18px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Phishing Detection Result</h1>
+        <p><strong>URL:</strong> {{ url }}</p>
+        
+        {% if result == "Phishing" %}
+            <h2 class="result-text phishing">Phishing</h2>
+        {% else %}
+            <h2 class="result-text legitimate">Legitimate</h2>
+        {% endif %}
+
+        <a href="/">Check Another URL</a>
+    </div>
+</body>
+</html>
